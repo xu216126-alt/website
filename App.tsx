@@ -4,11 +4,12 @@ import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { DATA_EN, DATA_CN, UI_LABELS } from './constants';
 import { InfiniteSeaWindow } from './components/InfiniteSeaWindow';
-import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft } from 'lucide-react';
+import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'cn'>('en');
   const [photoIndex, setPhotoIndex] = useState(0);
+  const [showToast, setShowToast] = useState(false);
 
   const DATA = lang === 'en' ? DATA_EN : DATA_CN;
   const LABELS = UI_LABELS[lang];
@@ -16,6 +17,20 @@ const App: React.FC = () => {
   // Logic to cycle photos
   const handlePhotoClick = () => {
     setPhotoIndex((prev) => (prev + 1) % DATA.profile.gallery.length);
+  };
+
+  // Logic to copy email to clipboard
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(DATA.profile.contact.email)
+      .then(() => {
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000); // Hide after 3 seconds
+      })
+      .catch((err) => {
+        console.error('Failed to copy email: ', err);
+        // Fallback for older browsers or if permission denied, though rare in this context
+        window.location.href = `mailto:${DATA.profile.contact.email}`;
+      });
   };
 
   return (
@@ -357,13 +372,13 @@ const App: React.FC = () => {
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 pt-2 justify-center md:justify-start">
-                <a 
-                  href={`mailto:${DATA.profile.contact.email}`} 
+                <button 
+                  onClick={handleCopyEmail}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-geek-500 text-white rounded-xl font-bold hover:bg-geek-400 transition-all shadow-lg hover:shadow-geek-500/25 transform hover:-translate-y-1"
                 >
                   <Mail size={20} />
                   {LABELS.contact.email}
-                </a>
+                </button>
                 <button 
                   onClick={() => window.open(`tel:${DATA.profile.contact.phone}`)}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-800 text-white rounded-xl font-bold hover:bg-slate-700 transition-all border border-slate-700 hover:border-slate-600"
@@ -387,12 +402,12 @@ const App: React.FC = () => {
                   </div>
                </div>
                <div className="space-y-4">
-                 <a href={`mailto:${DATA.profile.contact.email}`} className="flex items-center gap-3 text-slate-300 hover:text-white transition-colors group">
+                 <button onClick={handleCopyEmail} className="w-full flex items-center gap-3 text-slate-300 hover:text-white transition-colors group text-left">
                     <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center group-hover:bg-geek-500 transition-colors">
                       <Mail size={16} />
                     </div>
                     <span className="text-sm">{DATA.profile.contact.email}</span>
-                 </a>
+                 </button>
                  <div className="flex items-center gap-3 text-slate-300">
                     <div className="w-8 h-8 bg-slate-800 rounded-lg flex items-center justify-center">
                       <Phone size={16} />
@@ -422,6 +437,21 @@ const App: React.FC = () => {
            </div>
         </div>
       </footer>
+
+      {/* Toast Notification */}
+      <div 
+        className={`fixed bottom-8 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 transform ${
+          showToast ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="bg-slate-900 text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-3 border border-slate-700">
+          <div className="bg-green-500 rounded-full p-1">
+            <Check size={12} className="text-white" strokeWidth={3} />
+          </div>
+          <span className="font-medium text-sm">{LABELS.contact.copied}</span>
+        </div>
+      </div>
+
     </div>
   );
 };

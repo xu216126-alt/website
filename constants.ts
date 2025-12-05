@@ -12,7 +12,7 @@ export const UI_LABELS = {
     experience: { title: 'Work Experience', subtitle: 'Professional Journey' },
     education: { title: 'Education & Research', subtitle: 'Academic Background', eduTitle: 'Education', honors: 'Honors', pubTitle: 'Selected Publications', published: 'Published' },
     skills: { title: 'Technical Arsenal', subtitle: 'Skills & Competencies', count: 'SKILLS', languages: 'Languages', hobbies: 'Interests & Hobbies' },
-    contact: { title: 'Get In Touch', subtitle: "Let's Connect", heading: 'Interested in working together?', text: "I'm currently open for new opportunities in game design and interactive media. Whether you have a project in mind or just want to chat about game dev, feel free to reach out.", email: 'Send Email', call: 'Call Me' },
+    contact: { title: 'Get In Touch', subtitle: "Let's Connect", heading: 'Interested in working together?', text: "I'm currently open for new opportunities in game design and interactive media. Whether you have a project in mind or just want to chat about game dev, feel free to reach out.", email: 'Send Email', call: 'Call Me', copied: 'Email copied to clipboard!' },
     footer: { copyright: 'Zhao Wenbo. All rights reserved.' }
   },
   cn: {
@@ -21,7 +21,7 @@ export const UI_LABELS = {
     experience: { title: '工作经历', subtitle: '职业旅程' },
     education: { title: '教育与研究', subtitle: '学术背景', eduTitle: '教育经历', honors: '荣誉奖项', pubTitle: '精选论文', published: '发表于' },
     skills: { title: '技能武器库', subtitle: '能力清单', count: '项技能', languages: '语言能力', hobbies: '兴趣爱好' },
-    contact: { title: '取得联系', subtitle: '保持沟通', heading: '有兴趣一起合作吗？', text: '目前正在寻找游戏策划与交互媒体设计的新机会。如果您有相关项目或想交流游戏开发，欢迎随时联系。', email: '发送邮件', call: '拨打电话' },
+    contact: { title: '取得联系', subtitle: '保持沟通', heading: '有兴趣一起合作吗？', text: '目前正在寻找游戏策划与交互媒体设计的新机会。如果您有相关项目或想交流游戏开发，欢迎随时联系。', email: '发送邮件', call: '拨打电话', copied: '邮箱已复制到您的剪贴板！' },
     footer: { copyright: '赵文博。保留所有权利。' }
   }
 };
@@ -158,7 +158,7 @@ export const DATA_CN: PortfolioData = {
     // 在此处添加更多照片路径用于轮播展示
     gallery: [
       "/profile.png",
-      "/cartoon.png",
+      "/cartoon.png", 
       "/1.png", 
       "/2.png", 
       "/3.png", 
@@ -169,7 +169,8 @@ export const DATA_CN: PortfolioData = {
       "/8.png", 
       "/9.png", 
       "/10.png", 
-      // "/photo3.png"
+      // "/photo3.png", 
+      // "/photo4.png"
     ],
     languages: ["中文 (母语)", "英语 (流利)", "法语 (B1)"],
     hobbies: ["摄影", "观鸟", "游戏", "数码产品"],
