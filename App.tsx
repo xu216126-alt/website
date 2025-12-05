@@ -4,13 +4,19 @@ import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { DATA_EN, DATA_CN, UI_LABELS } from './constants';
 import { InfiniteSeaWindow } from './components/InfiniteSeaWindow';
-import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird } from 'lucide-react';
+import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'cn'>('en');
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   const DATA = lang === 'en' ? DATA_EN : DATA_CN;
   const LABELS = UI_LABELS[lang];
+
+  // Logic to cycle photos
+  const handlePhotoClick = () => {
+    setPhotoIndex((prev) => (prev + 1) % DATA.profile.gallery.length);
+  };
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans selection:bg-geek-100 selection:text-geek-900">
@@ -78,41 +84,56 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Interactive Image */}
+            {/* Right Column: Interactive Image Gallery */}
             <div className="relative order-1 md:order-2 flex-shrink-0">
-              <div className="w-64 h-72 md:w-80 md:h-[28rem] relative group cursor-pointer perspective-1000">
+              <div 
+                className="w-64 h-72 md:w-80 md:h-[28rem] relative group cursor-pointer perspective-1000"
+                onClick={handlePhotoClick}
+              >
                 {/* Decorative Elements */}
                 <div className="absolute -inset-4 bg-gradient-to-tr from-geek-200 to-transparent rounded-[2rem] opacity-30 group-hover:opacity-50 transition-opacity duration-500 rotate-6 group-hover:rotate-12"></div>
                 <div className="absolute -inset-4 bg-gradient-to-bl from-geek-100 to-transparent rounded-[2rem] opacity-30 group-hover:opacity-50 transition-opacity duration-500 -rotate-3 group-hover:-rotate-6"></div>
                 
                 {/* Main Frame */}
-                <div className="absolute inset-0 bg-slate-200 rounded-2xl shadow-[12px_12px_0px_0px_rgba(15,23,42,0.1)] group-hover:shadow-[16px_16px_0px_0px_rgba(14,165,233,0.2)] transition-all duration-300 border-2 border-white overflow-hidden">
+                <div className="absolute inset-0 bg-slate-200 rounded-2xl shadow-[12px_12px_0px_0px_rgba(15,23,42,0.1)] group-hover:shadow-[16px_16px_0px_0px_rgba(14,165,233,0.2)] transition-all duration-300 border-2 border-white overflow-hidden select-none">
                   
-                  {/* Real Photo (Base) */}
-                  <img 
-                    src={DATA.profile.avatar} 
-                    alt={DATA.profile.name} 
-                    className="absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-300 ease-in-out group-hover:opacity-0"
-                    onError={(e) => {
-                       // Fallback if image not found
-                       e.currentTarget.style.display = 'none';
-                       e.currentTarget.parentElement!.style.backgroundColor = '#e2e8f0'; 
-                       e.currentTarget.parentElement!.innerHTML += '<div class="flex items-center justify-center h-full text-slate-400 font-mono text-xs text-center p-4">Put profile.png<br/>in public folder</div>';
-                    }}
-                  />
-                  
-                  {/* Cartoon (Hover) */}
-                  <img 
-                    src={DATA.profile.cartoon} 
-                    alt={`${DATA.profile.name} Cartoon`} 
-                    className="absolute inset-0 w-full h-full object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out scale-105"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                    }}
-                  />
+                  {/* Images - mapped for fade transition */}
+                  {DATA.profile.gallery.map((src, index) => (
+                    <img 
+                      key={index}
+                      src={src} 
+                      alt={`${DATA.profile.name} - Photo ${index + 1}`}
+                      className={`absolute inset-0 w-full h-full object-cover object-center transition-opacity duration-500 ease-in-out ${index === photoIndex ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                      onError={(e) => {
+                         // Fallback logic
+                         if (index === 0) {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.parentElement!.style.backgroundColor = '#e2e8f0'; 
+                            e.currentTarget.parentElement!.innerHTML += '<div class="flex items-center justify-center h-full text-slate-400 font-mono text-xs text-center p-4">Add images in constants.ts<br/>and public folder</div>';
+                         }
+                      }}
+                    />
+                  ))}
 
                   {/* Tech Overlay lines */}
-                  <div className="absolute inset-0 border-[6px] border-white/0 group-hover:border-white/20 transition-all rounded-2xl pointer-events-none"></div>
+                  <div className="absolute inset-0 border-[6px] border-white/0 group-hover:border-white/20 transition-all rounded-2xl pointer-events-none z-20"></div>
+
+                  {/* Click Hint Overlay (Subtle) */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20 pointer-events-none">
+                     <div className="bg-black/20 backdrop-blur-sm px-3 py-1 rounded-full text-white/80 text-xs font-mono uppercase tracking-widest scale-90 group-hover:scale-100 transition-transform">
+                       Click to Browse
+                     </div>
+                  </div>
+
+                  {/* Pagination Dots */}
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2 z-20">
+                     {DATA.profile.gallery.map((_, idx) => (
+                       <div 
+                         key={idx} 
+                         className={`h-1.5 rounded-full transition-all duration-300 shadow-sm backdrop-blur-sm ${idx === photoIndex ? 'w-6 bg-geek-500' : 'w-1.5 bg-white/60'}`}
+                       />
+                     ))}
+                  </div>
                 </div>
 
                 {/* Floating Badge */}

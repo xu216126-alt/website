@@ -32,8 +32,25 @@ export const DATA_EN: PortfolioData = {
     title: "Game Designer & Interactive Media Artist",
     about: "Aspiring game designer with 3 years of experience in casual game design, market research, and interactive system development. Holds a BA in Digital Media Art with a strong academic and international background. My work bridges the gap between digital immersion and cultural heritage, seeking to create meaningful interactive experiences.",
     // PLEASE PLACE YOUR IMAGES IN THE PUBLIC FOLDER AND NAME THEM AS BELOW
-    avatar: "/profile.png", 
+    avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
+    // ADD MORE PHOTOS HERE FOR THE SLIDESHOW
+    gallery: [
+      "/profile.png",
+      "/cartoon.png", 
+      "/1.png", 
+      "/2.png", 
+      "/3.png", 
+      "/4.png", 
+      "/5.png", 
+      "/6.png", 
+      "/7.png", 
+      "/8.png", 
+      "/9.png", 
+      "/10.png", 
+      // "/photo3.png", 
+      // "/photo4.png"
+    ],
     languages: ["Chinese (Native)", "English (Fluent)", "French (B1)"],
     hobbies: ["Photography", "Bird Watching", "Gaming", "Digital Gadgets"],
     contact: {
@@ -136,8 +153,24 @@ export const DATA_CN: PortfolioData = {
     title: "游戏策划 & 交互媒体艺术家",
     about: "拥有3年经验的游戏策划，专注于休闲游戏设计、市场研究及交互系统开发。拥有数字媒体艺术学士学位，具备扎实的学术与国际化背景。我的工作致力于连接数字沉浸体验与文化传承，探索创造有意义的交互体验。",
     // 请将您的图片放入 public 文件夹并命名为以下名称
-    avatar: "/profile.png", 
+    avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
+    // 在此处添加更多照片路径用于轮播展示
+    gallery: [
+      "/profile.png",
+      "/cartoon.png",
+      "/1.png", 
+      "/2.png", 
+      "/3.png", 
+      "/4.png", 
+      "/5.png", 
+      "/6.png", 
+      "/7.png", 
+      "/8.png", 
+      "/9.png", 
+      "/10.png", 
+      // "/photo3.png"
+    ],
     languages: ["中文 (母语)", "英语 (流利)", "法语 (B1)"],
     hobbies: ["摄影", "观鸟", "游戏", "数码产品"],
     contact: {

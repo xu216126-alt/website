@@ -43,8 +43,9 @@ export interface Profile {
   name: string;
   title: string;
   about: string;
-  avatar: string;
-  cartoon: string;
+  avatar: string; // Kept for small thumbnails (like contact card)
+  cartoon: string; // Kept for backward compatibility
+  gallery: string[]; // NEW: Array of images for the hero section
   languages: string[];
   hobbies: string[];
   contact: ContactInfo;
