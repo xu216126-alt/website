@@ -46,6 +46,7 @@ export interface Profile {
   avatar: string; // Kept for small thumbnails (like contact card)
   cartoon: string; // Kept for backward compatibility
   gallery: string[]; // NEW: Array of images for the hero section
+  resume: string; // NEW: Path to the resume file
   languages: string[];
   hobbies: string[];
   contact: ContactInfo;

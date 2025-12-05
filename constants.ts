@@ -34,6 +34,8 @@ export const DATA_EN: PortfolioData = {
     // PLEASE PLACE YOUR IMAGES IN THE PUBLIC FOLDER AND NAME THEM AS BELOW
     avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
+    // PLEASE PLACE YOUR RESUME FILES IN THE PUBLIC FOLDER
+    resume: "/resume_en.pdf",
     // ADD MORE PHOTOS HERE FOR THE SLIDESHOW
     gallery: [
       "/profile.png",
@@ -155,6 +157,8 @@ export const DATA_CN: PortfolioData = {
     // 请将您的图片放入 public 文件夹并命名为以下名称
     avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
+    // 请将简历文件放入 public 文件夹
+    resume: "/resume_cn.pdf",
     // 在此处添加更多照片路径用于轮播展示
     gallery: [
       "/profile.png",

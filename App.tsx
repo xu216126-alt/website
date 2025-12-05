@@ -81,10 +81,16 @@ const App: React.FC = () => {
                   <Mail size={18} />
                   <span>{LABELS.hero.contact}</span>
                 </a>
-                <button className="flex items-center gap-2 px-8 py-4 bg-white/80 backdrop-blur border border-slate-200 text-slate-700 rounded-lg hover:border-geek-500 hover:text-geek-600 transition-all">
+                <a 
+                  href={DATA.profile.resume}
+                  download
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-8 py-4 bg-white/80 backdrop-blur border border-slate-200 text-slate-700 rounded-lg hover:border-geek-500 hover:text-geek-600 transition-all cursor-pointer"
+                >
                   <Download size={18} />
                   <span>{LABELS.hero.download}</span>
-                </button>
+                </a>
               </div>
 
               <div className="flex flex-col sm:flex-row gap-6 text-sm text-slate-500 pt-8 font-mono border-t border-slate-200/50 w-max">
