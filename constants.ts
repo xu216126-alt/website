@@ -1,4 +1,5 @@
 
+
 import { PortfolioData } from './types';
 
 // =========================================================================
@@ -146,6 +147,27 @@ export const DATA_EN: PortfolioData = {
       category: "Data Analysis",
       items: ["SensorTower", "Reyun", "Diandian", "Excel", "Data Visualization"]
     }
+  ],
+  projectWall: [
+    // Add your project screenshots here.
+    // Repeating existing images for demo purposes.
+    "/tank1.jpg",
+    "/tank2.jpg",
+    "/tank3.jpg",
+    "/tank4.png",
+    "/fish1.jpg",
+    "/fish2.webp",
+    "/fish3.jpg",
+    "/fish4.png",
+    "/pureland1.jpg",
+    "/pureland2.jpg",
+    "/pureland3.jpg",
+    "/pureland4.jpg",
+    "/hand.mp4",
+    "/project.mp4",
+    "/GGJ1.mp4",
+    "/GGJ2.mp4",
+    "/cityManager.mp4",
   ]
 };
 
@@ -266,5 +288,26 @@ export const DATA_CN: PortfolioData = {
       category: "数据分析",
       items: ["SensorTower", "热云数据", "点点数据", "Excel", "数据可视化"]
     }
+  ],
+  projectWall: [
+    // Add your project screenshots here.
+    // Repeating existing images for demo purposes.
+    "/tank1.jpg",
+    "/tank2.jpg",
+    "/tank3.jpg",
+    "/tank4.png",
+    "/fish1.jpg",
+    "/fish2.webp",
+    "/fish3.jpg",
+    "/fish4.png",
+    "/pureland1.jpg",
+    "/pureland2.jpg",
+    "/pureland3.jpg",
+    "/pureland4.jpg",
+    "/hand.mp4",
+    "/project.mp4",
+    "/GGJ1.mp4",
+    "/GGJ2.mp4",
+    "/cityManager.mp4",
   ]
 };

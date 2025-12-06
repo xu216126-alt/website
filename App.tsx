@@ -1,9 +1,11 @@
 
+
 import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Section } from './components/Section';
 import { DATA_EN, DATA_CN, UI_LABELS } from './constants';
 import { InfiniteSeaWindow } from './components/InfiniteSeaWindow';
+import { InfinitePhotoWall } from './components/InfinitePhotoWall';
 import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft, Check } from 'lucide-react';
 
 const App: React.FC = () => {
@@ -206,6 +208,9 @@ const App: React.FC = () => {
           ))}
         </div>
       </Section>
+      
+      {/* Project Wall (New) */}
+      <InfinitePhotoWall images={DATA.projectWall} />
 
       {/* Education & Research Grid */}
       <div className="bg-white py-12 relative overflow-hidden">

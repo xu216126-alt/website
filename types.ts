@@ -58,4 +58,5 @@ export interface PortfolioData {
   experience: Experience[];
   research: Research[];
   skills: SkillCategory[];
+  projectWall: string[]; // NEW: Array of images for the scrolling wall
 }
