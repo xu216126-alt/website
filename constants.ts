@@ -41,16 +41,16 @@ export const DATA_EN: PortfolioData = {
     gallery: [
       "/profile.png",
       "/cartoon.png", 
-      "/1.png", 
-      "/2.png", 
-      "/3.png", 
-      "/4.png", 
-      "/5.png", 
-      "/6.png", 
-      "/7.png", 
-      "/8.png", 
-      "/9.png", 
-      "/10.png", 
+      "/1.png",
+      "/2.png",
+      "/3.png",
+      "/4.png",
+      "/5.png",
+      "/6.png",
+      "/7.png",
+      "/8.png",
+      "/9.png",
+      "/10.png",
       // "/photo3.png", 
       // "/photo4.png"
     ],
@@ -166,7 +166,6 @@ export const DATA_EN: PortfolioData = {
     "/hand.mp4",
     "/project.mp4",
     "/GGJ1.mp4",
-    "/GGJ2.mp4",
     "/cityManager.mp4",
   ]
 };
@@ -184,19 +183,18 @@ export const DATA_CN: PortfolioData = {
     // 在此处添加更多照片路径用于轮播展示
     gallery: [
       "/profile.png",
-      "/cartoon.png", 
-      "/1.png", 
-      "/2.png", 
-      "/3.png", 
-      "/4.png", 
-      "/5.png", 
-      "/6.png", 
-      "/7.png", 
-      "/8.png", 
-      "/9.png", 
-      "/10.png", 
-      // "/photo3.png", 
-      // "/photo4.png"
+      "/cartoon.png",
+      "/1.png",
+      "/2.png",
+      "/3.png",
+      "/4.png",
+      "/5.png",
+      "/6.png",
+      "/7.png",
+      "/8.png",
+      "/9.png",
+      "/10.png",
+      // "/photo3.png"
     ],
     languages: ["中文 (母语)", "英语 (流利)", "法语 (B1)"],
     hobbies: ["摄影", "观鸟", "游戏", "数码产品"],
@@ -257,6 +255,29 @@ export const DATA_CN: PortfolioData = {
         "应用OpenCV人体追踪与OSC协议实现实时同步。",
         "使用Notch创作音频反应视觉效果。"
       ]
+    },
+    {
+      id: "exp-2",
+      role: "Casual Game Designer",
+      company: "Competitive World (Beijing) Network Technology Co., Ltd.",
+      period: "Jan 2021 - Sep 2022",
+      description: [
+        "Designed system architecture and core gameplay for puzzle and idle games.",
+        "Led competitive analysis to optimize monetization strategies and User Experience (UX).",
+        "Balanced game economies, resulting in a 10% Year-over-Year revenue improvement.",
+        "Designed seasonal events that increased Daily Active Users (DAU) by 12%."
+      ]
+    },
+    {
+      id: "exp-3",
+      role: "Interactive Visual Designer",
+      company: "Beijing New Drama Yuan Culture Technology Co., Ltd.",
+      period: "Sep 2019 - Dec 2019",
+      description: [
+        "Built an interactive projection system using Unity & LiDAR for the Panasonic Expo.",
+        "Implemented OpenCV body tracking and OSC protocol for real-time synchronization.",
+        "Created audio-reactive visuals using Notch."
+      ]
     }
   ],
   research: [
@@ -307,7 +328,6 @@ export const DATA_CN: PortfolioData = {
     "/hand.mp4",
     "/project.mp4",
     "/GGJ1.mp4",
-    "/GGJ2.mp4",
     "/cityManager.mp4",
   ]
 };

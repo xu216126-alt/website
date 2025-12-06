@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { X, ZoomIn } from 'lucide-react';
+import { X, ZoomIn, PlayCircle } from 'lucide-react';
 
 interface InfinitePhotoWallProps {
   images: string[];
@@ -10,6 +10,11 @@ export const InfinitePhotoWall: React.FC<InfinitePhotoWallProps> = ({ images }) 
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   if (!images || images.length === 0) return null;
+
+  // Helper to detect video files
+  const isVideo = (src: string) => {
+    return src.toLowerCase().match(/\.(mp4|webm|mov)$/);
+  };
 
   return (
     <>
@@ -32,15 +37,33 @@ export const InfinitePhotoWall: React.FC<InfinitePhotoWallProps> = ({ images }) 
               className="flex-shrink-0 mx-4 w-64 md:w-80 aspect-video bg-slate-800 rounded-lg overflow-hidden border border-slate-700/50 shadow-2xl relative transition-transform hover:scale-105 duration-300 cursor-pointer group/card"
               onClick={() => setSelectedImage(src)}
             >
-              <img 
-                src={src} 
-                alt={`Project ${index}`} 
-                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
-              />
-              {/* Hover Overlay with Zoom Icon */}
+              {isVideo(src) ? (
+                <>
+                  <video 
+                    src={src} 
+                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                  />
+                  {/* Video Indicator Icon */}
+                  <div className="absolute top-2 right-2 bg-black/50 p-1.5 rounded-full text-white/80 pointer-events-none">
+                    <PlayCircle size={16} />
+                  </div>
+                </>
+              ) : (
+                <img 
+                  src={src} 
+                  alt={`Project ${index}`} 
+                  className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                />
+              )}
+
+              {/* Hover Overlay with Zoom/Play Icon */}
               <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 bg-black/20 backdrop-blur-[1px]">
                  <div className="bg-black/50 p-2 rounded-full text-white/90">
-                    <ZoomIn size={24} />
+                    {isVideo(src) ? <PlayCircle size={32} /> : <ZoomIn size={24} />}
                  </div>
               </div>
             </div>
@@ -73,16 +96,25 @@ export const InfinitePhotoWall: React.FC<InfinitePhotoWallProps> = ({ images }) 
             <X size={32} />
           </button>
 
-          {/* Image Container */}
+          {/* Media Container */}
           <div 
-            className="relative max-w-full max-h-full rounded-lg shadow-2xl"
-            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the image itself
+            className="relative max-w-full max-h-full rounded-lg shadow-2xl flex items-center justify-center"
+            onClick={(e) => e.stopPropagation()} // Prevent closing when clicking the media itself
           >
-             <img 
-               src={selectedImage} 
-               alt="Enlarged view" 
-               className="max-w-full max-h-[85vh] object-contain rounded-md shadow-[0_0_50px_rgba(0,0,0,0.5)]"
-             />
+             {isVideo(selectedImage) ? (
+               <video 
+                 src={selectedImage} 
+                 className="max-w-full max-h-[85vh] rounded-md shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+                 controls
+                 autoPlay
+               />
+             ) : (
+               <img 
+                 src={selectedImage} 
+                 alt="Enlarged view" 
+                 className="max-w-full max-h-[85vh] object-contain rounded-md shadow-[0_0_50px_rgba(0,0,0,0.5)]"
+               />
+             )}
           </div>
         </div>
       )}
