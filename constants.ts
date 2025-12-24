@@ -31,7 +31,7 @@ export const DATA_EN: PortfolioData = {
   profile: {
     name: "Zhao Wenbo",
     title: "Game Designer & Interactive Media Artist",
-    about: "Aspiring game designer with 3 years of experience in casual game design, market research, and interactive system development. Holds a BA in Digital Media Art with a strong academic and international background. My work bridges the gap between digital immersion and cultural heritage, seeking to create meaningful interactive experiences.",
+    about: "Aspiring game designer with experience in casual game design, market research, and interactive system development. Holds a BA in Digital Media Art with a strong academic and international background. My work bridges the gap between digital immersion and cultural heritage, seeking to create meaningful interactive experiences.",
     // PLEASE PLACE YOUR IMAGES IN THE PUBLIC FOLDER AND NAME THEM AS BELOW
     avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
@@ -41,16 +41,16 @@ export const DATA_EN: PortfolioData = {
     gallery: [
       "/profile.png",
       "/cartoon.png", 
-      "/1.png",
-      "/2.png",
-      "/3.png",
-      "/4.png",
-      "/5.png",
-      "/6.png",
-      "/7.png",
-      "/8.png",
-      "/9.png",
-      "/10.png",
+      "/1.png", 
+      "/2.png", 
+      "/3.png", 
+      "/4.png", 
+      "/5.png", 
+      "/6.png", 
+      "/7.png", 
+      "/8.png", 
+      "/9.png", 
+      "/10.png", 
       // "/photo3.png", 
       // "/photo4.png"
     ],
@@ -82,6 +82,39 @@ export const DATA_EN: PortfolioData = {
     }
   ],
   experience: [
+    {
+      id: "exp-2025",
+      role: "Independent Researcher & Designer",
+      company: "International Study & Practice",
+      period: "Jan 2025 - Oct 2025",
+      description: [
+        "Conducted international exploration in digital media design.",
+        "Studied French language and culture to broaden design perspectives.",
+        "Designed and created immersive digital art installations."
+      ]
+    },
+    {
+      id: "exp-2024-2",
+      role: "Game System Product Manager",
+      company: "Game Hardware Tech Co.",
+      period: "Jul 2024 - Sep 2024",
+      description: [
+        "Led the UI design for game console operating systems.",
+        "Designed personalized user customization features and system theming.",
+        "Optimized user interaction flows for handheld gaming devices."
+      ]
+    },
+    {
+      id: "exp-2024-1",
+      role: "Web3 Casual Game Designer",
+      company: "Web3 Gaming Project",
+      period: "Jan 2024 - Mar 2024",
+      description: [
+        "Refined core gameplay mechanics for simulation games to integrate Web3 features.",
+        "Designed numerical economy systems and balancing.",
+        "Architected financial systems combining traditional gameplay loop with Web3 tokenomics."
+      ]
+    },
     {
       id: "exp-1",
       role: "Game Market Analyst",
@@ -174,7 +207,7 @@ export const DATA_CN: PortfolioData = {
   profile: {
     name: "赵文博",
     title: "游戏策划 & 交互媒体艺术家",
-    about: "拥有3年经验的游戏策划，专注于休闲游戏设计、市场研究及交互系统开发。拥有数字媒体艺术学士学位，具备扎实的学术与国际化背景。我的工作致力于连接数字沉浸体验与文化传承，探索创造有意义的交互体验。",
+    about: "经验丰富的游戏策划，专注于休闲游戏设计、市场研究及交互系统开发。拥有数字媒体艺术学士学位，具备扎实的学术与国际化背景。我的工作致力于连接数字沉浸体验与文化传承，探索创造有意义的交互体验。",
     // 请将您的图片放入 public 文件夹并命名为以下名称
     avatar: "/cartoon.png", 
     cartoon: "/cartoon.png",
@@ -183,18 +216,19 @@ export const DATA_CN: PortfolioData = {
     // 在此处添加更多照片路径用于轮播展示
     gallery: [
       "/profile.png",
-      "/cartoon.png",
-      "/1.png",
-      "/2.png",
-      "/3.png",
-      "/4.png",
-      "/5.png",
-      "/6.png",
-      "/7.png",
-      "/8.png",
-      "/9.png",
-      "/10.png",
-      // "/photo3.png"
+      "/cartoon.png", 
+      "/1.png", 
+      "/2.png", 
+      "/3.png", 
+      "/4.png", 
+      "/5.png", 
+      "/6.png", 
+      "/7.png", 
+      "/8.png", 
+      "/9.png", 
+      "/10.png", 
+      // "/photo3.png", 
+      // "/photo4.png"
     ],
     languages: ["中文 (母语)", "英语 (流利)", "法语 (B1)"],
     hobbies: ["摄影", "观鸟", "游戏", "数码产品"],
@@ -221,6 +255,39 @@ export const DATA_CN: PortfolioData = {
     }
   ],
   experience: [
+    {
+      id: "exp-2025",
+      role: "独立研究员 & 设计师",
+      company: "国际探索与实践",
+      period: "2025年1月 - 2025年10月",
+      description: [
+        "进行数字媒体设计的国际化探索。",
+        "学习法语语言文化，拓展国际化设计视野。",
+        "进行数字艺术装置的设计与创作。"
+      ]
+    },
+    {
+      id: "exp-2024-2",
+      role: "游戏机系统产品经理",
+      company: "游戏硬件科技公司",
+      period: "2024年7月 - 2024年9月",
+      description: [
+        "负责游戏机系统的UI界面设计。",
+        "规划系统个性化定制功能与主题设计。",
+        "优化掌机设备的用户交互流程。"
+      ]
+    },
+    {
+      id: "exp-2024-1",
+      role: "Web3休闲游戏策划",
+      company: "Web3游戏项目组",
+      period: "2024年1月 - 2024年3月",
+      description: [
+        "修改模拟经营游戏核心玩法，使其与Web3玩法相融合。",
+        "进行游戏内容的数值设计与平衡。",
+        "结合Web3特点进行金融系统设计。"
+      ]
+    },
     {
       id: "exp-1",
       role: "高级市场分析师",
@@ -254,29 +321,6 @@ export const DATA_CN: PortfolioData = {
         "利用Unity与激光雷达为松下展厅搭建交互投影系统。",
         "应用OpenCV人体追踪与OSC协议实现实时同步。",
         "使用Notch创作音频反应视觉效果。"
-      ]
-    },
-    {
-      id: "exp-2",
-      role: "Casual Game Designer",
-      company: "Competitive World (Beijing) Network Technology Co., Ltd.",
-      period: "Jan 2021 - Sep 2022",
-      description: [
-        "Designed system architecture and core gameplay for puzzle and idle games.",
-        "Led competitive analysis to optimize monetization strategies and User Experience (UX).",
-        "Balanced game economies, resulting in a 10% Year-over-Year revenue improvement.",
-        "Designed seasonal events that increased Daily Active Users (DAU) by 12%."
-      ]
-    },
-    {
-      id: "exp-3",
-      role: "Interactive Visual Designer",
-      company: "Beijing New Drama Yuan Culture Technology Co., Ltd.",
-      period: "Sep 2019 - Dec 2019",
-      description: [
-        "Built an interactive projection system using Unity & LiDAR for the Panasonic Expo.",
-        "Implemented OpenCV body tracking and OSC protocol for real-time synchronization.",
-        "Created audio-reactive visuals using Notch."
       ]
     }
   ],

@@ -6,7 +6,7 @@ import { Section } from './components/Section';
 import { DATA_EN, DATA_CN, UI_LABELS } from './constants';
 import { InfiniteSeaWindow } from './components/InfiniteSeaWindow';
 import { InfinitePhotoWall } from './components/InfinitePhotoWall';
-import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft, Check } from 'lucide-react';
+import { Mail, MapPin, Phone, GraduationCap, Download, ExternalLink, Calendar, Briefcase, Code, Award, Camera, Gamepad, Zap, Bird, ChevronRight, ChevronLeft, Check, Clock } from 'lucide-react';
 
 const App: React.FC = () => {
   const [lang, setLang] = useState<'en' | 'cn'>('en');
@@ -171,39 +171,53 @@ const App: React.FC = () => {
         </div>
       </section>
 
-      {/* Experience Section */}
+      {/* Experience Section - Beautified */}
       <Section id="experience" title={LABELS.experience.title} subtitle={LABELS.experience.subtitle}>
         <div className="relative space-y-12">
-          {/* Vertical Line */}
-          <div className="absolute left-4 md:left-8 top-4 bottom-4 w-px bg-slate-200 md:block hidden"></div>
+          {/* Timeline Vertical Line */}
+          <div className="absolute left-[19px] md:left-[23px] top-6 bottom-6 w-0.5 bg-gradient-to-b from-geek-200 via-slate-200 to-transparent"></div>
 
           {DATA.experience.map((job, index) => (
-            <div key={job.id} className="relative pl-0 md:pl-20 group">
-              {/* Timeline Dot */}
-              <div className="absolute left-8 top-1.5 w-3 h-3 rounded-full bg-white border-2 border-geek-500 -translate-x-1.5 md:block hidden group-hover:scale-125 transition-transform duration-300 shadow-sm"></div>
-
-              <div className="flex flex-col md:flex-row md:items-baseline justify-between mb-2">
-                <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2 group-hover:text-geek-600 transition-colors">
-                  {job.role}
-                </h3>
-                <span className="font-mono text-xs text-geek-600 bg-geek-50 px-3 py-1 rounded-full border border-geek-100">
-                  {job.period}
-                </span>
-              </div>
-              
-              <div className="text-slate-500 font-medium mb-4 flex items-center gap-2 text-sm">
-                <Briefcase size={14} />
-                {job.company}
+            <div key={job.id} className="relative pl-12 md:pl-16 group">
+              {/* Timeline Node */}
+              <div className="absolute left-0 top-0 w-10 h-10 md:w-12 md:h-12 bg-white rounded-full border border-slate-100 shadow-sm flex items-center justify-center z-10 group-hover:scale-110 group-hover:border-geek-200 transition-all duration-300">
+                <div className="w-3 h-3 md:w-4 md:h-4 bg-geek-100 rounded-full flex items-center justify-center">
+                   <div className={`w-1.5 h-1.5 md:w-2 md:h-2 rounded-full ${index === 0 ? 'bg-geek-500 animate-pulse' : 'bg-geek-400'}`}></div>
+                </div>
               </div>
 
-              <ul className="space-y-3">
-                {job.description.map((point, i) => (
-                  <li key={i} className="text-slate-600 leading-relaxed flex items-start gap-3">
-                    <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-slate-300 flex-shrink-0"></span>
-                    <span>{point}</span>
-                  </li>
-                ))}
-              </ul>
+              {/* Card Container */}
+              <div className="bg-white rounded-2xl p-6 md:p-8 border border-slate-100 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:border-geek-100 hover:-translate-y-1 transition-all duration-300">
+                <div className="flex flex-col md:flex-row md:items-start justify-between mb-4 gap-2">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-bold text-slate-900 group-hover:text-geek-600 transition-colors">
+                      {job.role}
+                    </h3>
+                    <div className="flex items-center gap-2 text-slate-500 font-medium mt-1">
+                      <Briefcase size={16} className="text-geek-400" />
+                      <span>{job.company}</span>
+                    </div>
+                  </div>
+                  
+                  <div className="flex-shrink-0">
+                    <span className="inline-flex items-center gap-1.5 font-mono text-xs md:text-sm font-bold text-geek-700 bg-geek-50 px-3 py-1.5 rounded-full border border-geek-100">
+                      <Clock size={12} />
+                      {job.period}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="h-px bg-slate-50 w-full mb-5"></div>
+
+                <ul className="space-y-3">
+                  {job.description.map((point, i) => (
+                    <li key={i} className="text-slate-600 leading-relaxed flex items-start gap-3 text-base">
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-geek-300 flex-shrink-0 group-hover:bg-geek-500 transition-colors"></span>
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
